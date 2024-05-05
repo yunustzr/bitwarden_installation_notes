@@ -1,15 +1,15 @@
 curl -L https://github.com/bitwarden/server/releases/download/v2024.4.2/docker-stub-US.zip  -o docker-stub-US.zip
 docker compose -f ./docker/docker-compose.yml up
 
-
-b3ca0fabb3c   bitwarden/nginx:latest           "/entrypoint.sh"   2 minutes ago   Restarting (1) 4 seconds ago                 bitwarden-nginx
-9eccc59337fd   bitwarden/admin:latest           "/entrypoint.sh"   2 minutes ago   Up 2 minutes (unhealthy)          5000/tcp   bitwarden-admin
-d4f9effd68fd   bitwarden/events:latest          "/entrypoint.sh"   2 minutes ago   Up 2 minutes (healthy)            5000/tcp   bitwarden-events
-6642b5034412   bitwarden/icons:latest           "/entrypoint.sh"   2 minutes ago   Up 2 minutes (healthy)            5000/tcp   bitwarden-icons
-ddc956c5bc53   bitwarden/identity:latest        "/entrypoint.sh"   2 minutes ago   Restarting (139) 40 seconds ago              bitwarden-identity
-15118d511f1a   bitwarden/notifications:latest   "/entrypoint.sh"   2 minutes ago   Up 2 minutes (healthy)            5000/tcp   bitwarden-notifications
-7af2ba1b0faa   bitwarden/api:latest             "/entrypoint.sh"   2 minutes ago   Up 2 minutes (healthy)            5000/tcp   bitwarden-api
-48f730737c8c   bitwarden/attachments:latest     "/entrypoint.sh"   2 minutes ago   Up 2 minutes (healthy)                       bitwarden-attachments
-7f36ebcdd6bb   bitwarden/mssql:latest           "/entrypoint.sh"   2 minutes ago   Restarting (255) 3 seconds ago               bitwarden-mssql
-1fbafd419d85   bitwarden/web:latest             "/entrypoint.sh"   2 minutes ago   Up 2 minutes (healthy)                       bitwarden-web
-bf0ab440e884   bitwarden/sso:latest             "/entrypoint.sh"   2 minutes ago   Restarting (139) 40 seconds ago              bitwarden-ss
+1cc0a930fd54   bitwarden/nginx:2024.4.1           "/entrypoint.sh"   29 seconds ago   Up 25 seconds (health: starting)   80/tcp, 0.0.0.0:80->8080/tcp, :::80->8080/tcp, 0.0.0.0:443->8443/tcp, :::443->8443/tcp   bitwarden-nginx
+d2da7b0c0256   bitwarden/admin:2024.4.1           "/entrypoint.sh"   30 seconds ago   Up 26 seconds (health: starting)   5000/tcp                                                                                 bitwarden-admin
+dd10205e7504   bitwarden/mssql:2024.4.1           "/entrypoint.sh"   31 seconds ago   Up 27 seconds (health: starting)                                                                                            bitwarden-mssql
+584963c1b461   bitwarden/web:2024.4.1             "/entrypoint.sh"   31 seconds ago   Up 27 seconds (health: starting)                                                                                            bitwarden-web
+17bc91c69129   bitwarden/attachments:2024.4.1     "/entrypoint.sh"   31 seconds ago   Up 27 seconds (health: starting)                                                                                            bitwarden-attachments
+a78417f927e5   bitwarden/icons:2024.4.1           "/entrypoint.sh"   31 seconds ago   Up 27 seconds (health: starting)   5000/tcp                                                                                 bitwarden-icons
+3535a06dc6b0   bitwarden/events:2024.4.1          "/entrypoint.sh"   31 seconds ago   Up 27 seconds (health: starting)   5000/tcp                                                                                 bitwarden-events
+cefc12db8584   bitwarden/notifications:2024.4.1   "/entrypoint.sh"   31 seconds ago   Up 27 seconds (health: starting)   5000/tcp                                                                                 bitwarden-notifications
+2a13fce63412   bitwarden/api:2024.4.1             "/entrypoint.sh"   31 seconds ago   Up 27 seconds (health: starting)   5000/tcp                                                                                 bitwarden-api
+2a34feb757fc   bitwarden/sso:2024.4.1             "/entrypoint.sh"   31 seconds ago   Up 27 seconds (health: starting)   5000/tcp                                                                                 bitwarden-sso
+6b0fc541dca9   bitwarden/identity:2024.4.1        "/entrypoint.sh"   31 seconds ago   Up 27 seconds (health: starting)   5000/tcp                                                                                 bitwarden-identity
+         bitwarden-ss
