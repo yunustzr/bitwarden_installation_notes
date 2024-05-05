@@ -1,0 +1,2 @@
+curl -L https://github.com/bitwarden/server/releases/download/v2024.4.2/docker-stub-US.zip  -o docker-stub-US.zip
+docker compose -f ./docker/docker-compose.yml up
