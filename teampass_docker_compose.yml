@@ -1,51 +1,29 @@
-version: '3'
-
+version: "3"
 services:
-
-  teampasswordmanager:
-    image: teampass:3.1.1
-    depends_on:
-      - mysql
-    restart: always
+  teampass-web:
+    image: teampass:3.1.2
+    networks:
+      - teampassnt
+    restart: unless-stopped
+    volumes:
+      - ./settings.php:/var/www/html/includes/config/settings.php
     ports:
       - "8080:80"
-      - "443:443"
-    volumes:
-      - tpm_volume:/var/www/html
+    depends_on:
+      - db
+  db:
+    restart: unless-stopped
+    image: yobasystems/alpine-mariadb:latest
     networks:
-     - tpm_network
+      - teampassnt
     environment:
-      - TPM_SERVER_TIMEZONE=Etc/UTC
-      - TPM_PHP_TIMEZONE=Etc/UTC
-      - TPM_ENCRYPT_DB_CONFIG=0
-      - TPM_CONFIG_HOSTNAME=mysql
-      - TPM_CONFIG_PORT=3306
-      - TPM_CONFIG_USERNAME=tpm_user
-      - TPM_CONFIG_PASSWORD=tpm_password
-      - TPM_CONFIG_DATABASE=tpm_database
-      - TPM_UPGRADE=0
-
-  mysql:
-    image: mysql:5.7
-    restart: always
-    ports:
-      - "13306:3306"
+      MYSQL_ROOT_PASSWORD: YOUR_SUPERSECRET_PASSWORD
+      MYSQL_DATABASE: teampass
+      MYSQL_PASSWORD: YOUR_SECRET_PASSWORD
+      MYSQL_USER: teampass
     volumes:
-      - tpm_mysqldata:/var/lib/mysql 
-    networks:
-     - tpm_network
-    environment:
-      - MYSQL_USER=tpm_user
-      - MYSQL_PASSWORD=tpm_password
-      - MYSQL_DATABASE=tpm_database
-      - MYSQL_ROOT_PASSWORD=password5.7
+      - ./teampass-db:/var/lib/mysql
 
 networks:
-  tpm_network:
-    driver: "bridge"
-
-volumes:
-  tpm_mysqldata:
-    driver: "local"
-  tpm_volume:
-    driver: "local"
+  teampassnt:
+    driver: bridge
